@@ -578,7 +578,7 @@ __DATA__
     {
      "description": "object attributes like defined in the source config files",
      "name": "...",
-     "type": "",
+     "type": "string",
      "unit": ""
     },
     {
@@ -590,7 +590,7 @@ __DATA__
     {
      "description": "internal uniq id",
      "name": ":ID",
-     "type": "",
+     "type": "string",
      "unit": ""
     },
     {
@@ -614,7 +614,7 @@ __DATA__
     {
      "description": "list of used template",
      "name": ":TEMPLATES",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -680,7 +680,7 @@ __DATA__
     {
      "description": "list of errors encountered",
      "name": "errors",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3062,7 +3062,7 @@ __DATA__
     {
      "description": "list of roles this key is limited too",
      "name": "roles",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3086,7 +3086,7 @@ __DATA__
     {
      "description": "list of backend ids used for the last calculation",
      "name": "affected_peers",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3110,7 +3110,7 @@ __DATA__
     {
      "description": "list of enabled filters",
      "name": "filter",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3206,13 +3206,13 @@ __DATA__
     {
      "description": "list of contactgroups if broadcast should be limited to specific groups",
      "name": "contactgroups",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of contacts if broadcast should be limited to specific contacts",
      "name": "contacts",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3260,7 +3260,7 @@ __DATA__
     {
      "description": "hash list of macros",
      "name": "macros",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3338,7 +3338,7 @@ __DATA__
     {
      "description": "list of current process ids of this node",
      "name": "pids",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3698,13 +3698,13 @@ __DATA__
     {
      "description": "list of available omd versions",
      "name": "omd_available_versions",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of unused omd versions",
      "name": "omd_cleanable",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3758,13 +3758,13 @@ __DATA__
     {
      "description": "list of available security updates",
      "name": "os_security",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of available os updates",
      "name": "os_updates",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3908,7 +3908,7 @@ __DATA__
     {
      "description": "list of backends this downtime is used for",
      "name": "backends",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3968,13 +3968,13 @@ __DATA__
     {
      "description": "list of hostnames",
      "name": "host",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of hostgroups",
      "name": "hostgroup",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -3986,19 +3986,19 @@ __DATA__
     {
      "description": "list of schedules",
      "name": "schedule",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of services",
      "name": "service",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
      "description": "list of servicegroups",
      "name": "servicegroup",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4016,7 +4016,7 @@ __DATA__
     {
      "description": "list of backends used in this report",
      "name": "backends",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4082,7 +4082,7 @@ __DATA__
     {
      "description": "list of cron entries",
      "name": "send_types",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4112,7 +4112,7 @@ __DATA__
     {
      "description": "list of selected backends.",
      "name": "backends",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4178,7 +4178,7 @@ __DATA__
     {
      "description": "list of crontab entries.",
      "name": "send_types",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4418,7 +4418,7 @@ __DATA__
     {
      "description": "list of contactgroups",
      "name": "groups",
-     "type": "string",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4448,7 +4448,7 @@ __DATA__
     {
      "description": "list of roles for this user",
      "name": "roles",
-     "type": "",
+     "type": "array_of_strings",
      "unit": ""
     },
     {
@@ -4533,6 +4533,30 @@ __DATA__
      "description": "users selected timezone",
      "name": "tz",
      "type": "string",
+     "unit": ""
+    }
+   ]
+  }
+ },
+ "/contacts": {
+  "GET": {
+   "columns": [
+    {
+     "description": "",
+     "name": "in_host_notification_period",
+     "type": "boolean",
+     "unit": ""
+    },
+    {
+     "description": "",
+     "name": "in_service_notification_period",
+     "type": "boolean",
+     "unit": ""
+    },
+    {
+     "description": "modified_attributes_list",
+     "name": "peer_section",
+     "type": "array_of_strings",
      "unit": ""
     }
    ]
