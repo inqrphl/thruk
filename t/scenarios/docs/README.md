@@ -23,5 +23,6 @@ The scenario container can also serve as the backend for the repository root `ma
     %> cd t/scenarios/docs
     %> make prepare          # starts the container and installs the repo-root thruk_local.d/docs-scenario.conf peer config
     %> cd $REPO_ROOT
+    %> PERL5LIB=lib perl Makefile.PL # generates the Makefile
     %> PERL5LIB=lib make docs
     %> cd t/scenarios/docs && make clean
