@@ -1894,13 +1894,7 @@ sub _get_columns_meta_for_path {
         length $b <=> length $a
     } keys %{$keys}) {
         my $p = $path;
-        # Finding syntax
-        # '<' literal
-        # '[^>]' anything that isnt '>' , one or more
-        # '>' literal
-        # replace it with
-        # '[^/]*' anything that isnt /
-        # So patterns like '/host/<name>/outages' get replaced to '/host/[^/]*/outages' for regex matches
+        # Replace endpoints like '/host/<name>/outages' to '/host/[^/]*/outages' for regex matches
         $p =~ s%<[^>]+>%[^/]*%gmx;
 
         if($path_info !~ qr/$p/mx) {
