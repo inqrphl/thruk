@@ -4,7 +4,6 @@ use warnings;
 use strict;
 use Carp;
 use Cpanel::JSON::XS ();
-use File::Basename ();
 use Module::Load qw/load/;
 use Time::HiRes ();
 use URI::Escape qw/uri_unescape/;
