@@ -2019,7 +2019,7 @@ sub get_rest_paths {
                             $c->config->{'project_root'}."/lib/Thruk/Controller/Rest/V1/*.pm",
                         )))];
     } else {
-        my $root = $ENV{'THRUKOLDPWD'} || File::Basename::dirname(File::Basename::dirname(File::Basename::dirname(File::Basename::dirname(__FILE__))));
+        my $root = $c->config->{'project_root'} || File::Basename::dirname(File::Basename::dirname(File::Basename::dirname(File::Basename::dirname(__FILE__))));
         $input_files = [glob("$root/lib/Thruk/Controller/rest_v1.pm
                              $root/plugins/plugins-available/*/lib/Thruk/Controller/Rest/V1/*.pm
                              $root/lib/Thruk/Controller/Rest/V1/*.pm")];
