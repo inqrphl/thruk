@@ -1667,31 +1667,31 @@ lists connected sites. Only available if LMD (`use_lmd`) is enabled.
 
 [options="header"]
 |===========================================
-|Attribute                         | Type            | Unit     | Description
-|addr                              | string          |          | address of the remote site
-|bytes_received                    | number          | bytes    | total bytes received from this site
-|bytes_send                        | number          | bytes    | total bytes send to this site
-|flags                             | array_of_stings |          | contains the lmd flags for this backend
-|federation_addr                   | string          |          | contains the real address if using federation
-|federation_key                    | string          |          | contains the real peer key if using federation
-|federation_name                   | string          |          | contains the real name if using federation
-|federation_type                   | string          |          | contains the real backend type if using federation
-|federation_version                | string          |          | contains the real backend version if using federation
-|idling                            | boolean         |          | flag if the connection is in idle mode
-|key                               | string          |          | primary id of this site
-|last_error                        | time            |          | last error message
-|last_online                       | time            |          | timestamp when the site was last time online
-|last_query                        | time            |          | timestamp of the last received query for this site
-|last_update                       | time            |          | timestamp of the last update
-|lmd_last_cache_update             | time            |          | same as last_update
-|name                              | string          |          | name of the site
-|parent                            | string          |          | parent id for lmd federation setups
-|peer_key                          | string          |          | id as defined in Thruk::Backend component configuration
-|peer_name                         | string          |          | name as defined in Thruk::Backend component configuration
-|queries                           | number          |          | number of queries received
-|response_time                     | number          | s        | response time in seconds
-|section                           |                 |          | thruks section
-|status                            | string          |          | connection status of this site
+|Attribute                         | Type             | Unit     | Description
+|addr                              | string           |          | address of the remote site
+|bytes_received                    | number           | bytes    | total bytes received from this site
+|bytes_send                        | number           | bytes    | total bytes send to this site
+|flags                             | array_of_strings |          | contains the lmd flags for this backend
+|federation_addr                   | string           |          | contains the real address if using federation
+|federation_key                    | string           |          | contains the real peer key if using federation
+|federation_name                   | string           |          | contains the real name if using federation
+|federation_type                   | string           |          | contains the real backend type if using federation
+|federation_version                | string           |          | contains the real backend version if using federation
+|idling                            | boolean          |          | flag if the connection is in idle mode
+|key                               | string           |          | primary id of this site
+|last_error                        | time             |          | last error message
+|last_online                       | time             |          | timestamp when the site was last time online
+|last_query                        | time             |          | timestamp of the last received query for this site
+|last_update                       | time             |          | timestamp of the last update
+|lmd_last_cache_update             | time             |          | same as last_update
+|name                              | string           |          | name of the site
+|parent                            | string           |          | parent id for lmd federation setups
+|peer_key                          | string           |          | id as defined in Thruk::Backend component configuration
+|peer_name                         | string           |          | name as defined in Thruk::Backend component configuration
+|queries                           | number           |          | number of queries received
+|response_time                     | number           | s        | response time in seconds
+|section                           |                  |          | thruks section
+|status                            | string           |          | connection status of this site
 |===========================================
 
 
@@ -2910,4 +2910,3 @@ Update timeperiods configuration partially.
 === DELETE /timeperiods/<name>/config
 
 Deletes given timeperiod from configuration.
-
