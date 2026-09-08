@@ -33,7 +33,7 @@ my %table_paths = (
     status              =>        ['/processinfo']
 );
 
-# Type mapping: naemon types → thruk types
+# Type mapping: naemon documentation types → thruk types
 my %type_map = (
     int    => 'number',
     float  => 'number',
@@ -75,7 +75,7 @@ for my $table (sort keys %table_paths) {
     }
 }
 
-# ── 5. Write the output file ────────────────────────────────────────────
+# ── 5. Write the output file (only replace the __DATA__ section) ────────
 my $header = <<'HEADER';
 package Thruk::Controller::Rest::V1::livestatus_docs;
 
@@ -127,14 +127,34 @@ sub keys {
 __DATA__
 HEADER
 
-open(my $fh, '>', $output_file) or die "cannot write $output_file: $!";
-print $fh $header;
-
 my $encoder = Cpanel::JSON::XS->new->utf8->canonical->pretty->indent_length(1)->space_before(0);
-print $fh $encoder->encode(\%output);
+my $json = $encoder->encode(\%output);
+$json   .= "\n" unless $json =~ m/\n\z/;
+
+my $updated = 0;
+my $content;
+if(-e $output_file) {
+    open(my $in, '<', $output_file) or die "cannot read $output_file: $!";
+    local $/;
+    my $existing = <$in>;
+    close($in);
+
+    my $marker = "__DATA__\n";
+    my $pos    = index($existing, $marker);
+
+    die "cannot update $output_file: '__DATA__' marker not found\n" if $pos < 0;
+    $content = substr($existing, 0, $pos + length($marker)) . $json;
+    $updated = 1;
+} else {
+    # first run: create the file including the default header above
+    $content = $header . $json;
+}
+
+open(my $fh, '>', $output_file) or die "cannot write $output_file: $!";
+print $fh $content;
 close($fh);
 
-print "Generated $output_file\n";
+print $updated ? "Updated __DATA__ section of $output_file (header preserved)\n" : "Generated $output_file\n";
 printf "  Tables: %d\n", scalar keys %table_paths;
 printf "  Endpoints: %d\n", scalar keys %output;
 
