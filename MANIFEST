@@ -2306,6 +2306,7 @@ script/thruk_fastcgi.pl
 script/thruk_fastcgi_server.sh
 script/thruk_format_perl_modules
 script/thruk_link_images.sh
+script/thruk_logcache_export.pl
 script/thruk_optimize_images.sh
 script/thruk_patch_makefile.pl
 script/thruk_server.pl
@@ -2412,6 +2413,7 @@ t/100-cli-naglint.t
 t/100-cli-naglint2.t
 t/100-cli-scripts-convertdatafiles.t
 t/100-cli-thruk.t
+t/100-logcache-dbcommon.t
 t/100-model_Thruk.t
 t/100-scripts.t
 t/100-themes.t
